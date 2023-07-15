@@ -8,6 +8,7 @@ import NotFound from '../NotFound'
 import SignIn from '../SignIn'
 import Navbar from '../../Components/Navbar'
 import './App.css'
+import { useState } from 'react'
 
 const AppRoutes = () => {
   let routes = useRoutes([{ path: '/', element: <Home/>},
@@ -22,6 +23,7 @@ const AppRoutes = () => {
 }
 
 const App =() => {
+
   return (
     <ShoppingCartProvider>
       <BrowserRouter>

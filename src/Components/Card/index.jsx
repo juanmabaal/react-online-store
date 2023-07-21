@@ -5,8 +5,16 @@ import { PlusIcon } from '@heroicons/react/24/solid'
 const Card = (data) => {
 const context = useContext(ShoppingCartContext);
 
+const showProduct= (ProductDetail)=> {
+    context.toggleProductDetail();
+    context.setProductToShow(ProductDetail);
+
+}
+
     return (
-        <div className='bg-white cursor-pointer w-45 h-55 rounded-lg border border-gray-300 border-line p-1'>
+        <div 
+        className='bg-white cursor-pointer w-45 h-55 rounded-lg border border-gray-300 border-line p-1'
+        onClick={() => showProduct(data.data)}>
             <figure className='relative mb-2 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-green-600 px-1 bg-opacity-50 rounded-lg font-semibold text-black text-xs m-1 py-0.5'>{data.data.category.name}</span>
                 <img src= {data.data.images[0]}/* 'https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/cgn/cgn00931/l/164.jpg' */ className="w-full h-full

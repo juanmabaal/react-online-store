@@ -6,9 +6,17 @@ const Card = (data) => {
 const context = useContext(ShoppingCartContext);
 
 const showProduct= (ProductDetail)=> {
-    context.toggleProductDetail();
+    context.openProductDetail();;
     context.setProductToShow(ProductDetail);
+    context.closeCheckoutSideMenu();
+}
 
+const addProductsToCart  = (event, productData) => {
+    event.stopPropagation();
+    context.setCount(context.count + 1)
+    context.setCartProducts([...context.cartProducts, productData]);
+    context.openCheckoutSideMenu()
+    context.closeProductDetail() 
 }
 
     return (
@@ -19,7 +27,7 @@ const showProduct= (ProductDetail)=> {
                 <span className='absolute bottom-0 left-0 bg-green-600 px-1 bg-opacity-50 rounded-lg font-semibold text-black text-xs m-1 py-0.5'>{data.data.category.name}</span>
                 <img src= {data.data.images[0]}/* 'https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/cgn/cgn00931/l/164.jpg' */ className="w-full h-full
                 object-cover rounded-lg" alt={data.data.title}/>
-                <div className='absolute top-0 right-0 flex justify-center items-center bg-green-600 w-6 h-6 rounded-full m-1 font-bold p-1' onClick={()=> context.setCount(context.count + 1)}>
+                <div className='absolute top-0 right-0 flex justify-center items-center bg-green-600 w-6 h-6 rounded-full m-1 font-bold p-1' onClick={(event)=> addProductsToCart(event, data.data)}>
                     <PlusIcon className='h-6 w-6 text-black'>
                     </PlusIcon>
                     </div>

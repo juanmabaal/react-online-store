@@ -33,7 +33,7 @@ export const ShoppingCartProvider = ({children}) => {
     //Shopping Cart - Add products to Card
     const [cartProducts, setCartProducts] = useState([]);
 
-    //Shopping Cart -
+    //Shopping Cart - Order
     const [order, setOrder] = useState([]); 
 
     return (

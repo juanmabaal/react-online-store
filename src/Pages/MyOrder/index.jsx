@@ -8,8 +8,12 @@ import Layout from "../../Components/Layout"
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
+const currentPath = window.location.pathname
+let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+if (index === 'last') {
+  index = context.order?.length  -1;
+}
 
-  console.log(context.order?.slice(-1)[0])
     return (
         <Layout>
           <div className='flex items-center justify-center relative w-80 mb-5'>
@@ -20,7 +24,7 @@ function MyOrder() {
           </div>
           <div className='flex flex-col w-80'>
             {
-            context.order && context.order.length > 0 ? context.order.slice(-1)[0].products.map(product => (
+            context.order?.[index]?.products.map(product => (
                     <OrderCard 
                     key={product.id}
                     id={product.id}
@@ -28,9 +32,8 @@ function MyOrder() {
                     imageUrl = {product.images}
                     price= {product.price}
                     />                    
-              ))
-              : <p>No hay productos en la orden.</p>
-            }
+              ))                
+              }
             </div>
         </Layout>
     )

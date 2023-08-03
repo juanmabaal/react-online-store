@@ -16,45 +16,57 @@ const activeStyle = 'underline underline-offset-4'
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/'
+                    <NavLink 
+                    to = '/'
+                    onClick={() => context.setSearchByCategory()}
                     className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
                         All
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/supplements'
+                    <NavLink 
+                    to = '/clothes'
+                    onClick={() => context.setSearchByCategory('clothes')}
                     className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
-                        Suplementos
+                        Clothes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/herbs-homeopathy'
+                    <NavLink 
+                    to = '/electronics'
+                    onClick={() => context.setSearchByCategory('electronics')}
                     className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
-                        Hierbas y Homeopatía
+                        Electronics
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/beauty'
+                    <NavLink 
+                    to = '/furnitures'
+                    onClick={() => context.setSearchByCategory('furnitures')}
                     className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
-                        Belleza
+                        Furnitures
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/sports'
+                    <NavLink 
+                        to = '/shoes'
+                        onClick={() => context.setSearchByCategory('shoes')}
                         className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
-                        Nutrición Deportiva
+                        shoes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to = '/otros'
+                    <NavLink 
+                        to = '/others'
+                        onClick={() => context.setSearchByCategory('others')}
                         className={({ isActive }) => isActive ? activeStyle : undefined    
                     }>
-                        Otros
+                        Others
                     </NavLink>
                 </li>
             </ul>

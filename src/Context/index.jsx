@@ -87,8 +87,6 @@ export const ShoppingCartProvider = ({children}) => {
         if(!searchByTittle && !searchByCategory ) setFilteredItems(filterBy(null,items, searchByTittle, searchByCategory))
     },[items, searchByTittle, searchByCategory])
 
-    console.log('filtered Items: ', filteredItems)
-
     return (
         <ShoppingCartContext.Provider value={{
             count,

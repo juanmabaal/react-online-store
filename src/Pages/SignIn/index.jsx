@@ -1,58 +1,37 @@
 import Layout from "../../Components/Layout"
+import { Link } from 'react-router-dom'
 import React, {useState } from "react"
-import { useContext } from "react"
-import { ShoppingCartContext } from "../../Context";
+
 
 function SignIn() {
-  const context = useContext(ShoppingCartContext); 
-
-  const handleSubmit = (e) => {
-    e.preveventDefault();
-    console.log('Email:', context.email);
-    console.log('Password:', context.password);
-  }
 
     return (
         <Layout>
-          <div className="flex justify-center items-center h-screen">
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-        <h2 className="text-2xl mb-4">title</h2>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email"
-            value={context.email}
-            onChange={(e) => context.setEmail(e.target.value)}
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="********"
-            value={context.password}
-            onChange={(e) => context.setPassword(e.target.value)}
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            title
-          </button>
-        </div>
-      </form>
-    </div>
+          <h1 className='font-medium text-xl text-center mb-6 mt-6 w-80'>Welcome</h1>
+          <div className='flex flex-col w-80'>
+            <p>
+              <span className='font-light text-sm'>Email: </span>
+              <span>juanma.baal@gmail.com</span>
+            </p>
+            <p>
+              <span className='font-light text-sm'>Password: </span>
+              <span>********</span>
+            </p>
+            <Link
+              to="/">
+              <button
+                className='bg-black disabled:bg-black/40 text-white w-full rounded-lg py-3 mt-4 mb-2'>
+                Log in
+              </button>
+            </Link>
+            <div className='text-center'>
+              <a className='font-light text-xs underline underline-offset-4' href='/'>Forgot my password</a>
+            </div>
+            <button
+              className='border border-black disabled:text-black/40 disabled:border-black/40 rounded-lg mt-6 py-3'>
+              Sign up
+            </button>
+          </div>
         </Layout>
     )
   }

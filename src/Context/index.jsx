@@ -2,9 +2,34 @@ import { createContext, useState, useEffect } from "react";
 
 export const ShoppingCartContext = createContext();
 
+export const initializeLocalStorage = () =>  {
+    const accountInLocalStorage = localStorage.getItem('account')
+    const signOutInLocalStorage = localStorage.getItem('sign-out')
+    let parsedAccount
+    let parcedSignOut
+
+    if (!accountInLocalStorage) {
+        localStorage.setItem('account', JSON.stringify({}))
+        parsedAccount = {}
+    } else {
+        parsedAccount = JSON.parse(accountInLocalStorage)
+    }
+
+    if(!signOutInLocalStorage) {
+        localStorage.setItem('sign-out', JSON.stringify(false))
+        parcedSignOut = false
+    } else {
+        parcedSignOut = JSON.parse(signOutInLocalStorage)
+    }
+}
+
 export const ShoppingCartProvider = ({children}) => {
     //Shopping Cart - Increment quantify
     const [count, setCount] = useState(0);
+
+    //Formulario de registro
+    const [email, setEmail] =useState('');
+    const [password, setPassword] = useState('');
 
     //Product Detail - Open/Close
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
@@ -91,6 +116,10 @@ export const ShoppingCartProvider = ({children}) => {
         <ShoppingCartContext.Provider value={{
             count,
             setCount,
+            email,
+            setEmail,
+            password,
+            setPassword,
             toggleProductDetail,
             openProductDetail,
             closeProductDetail,

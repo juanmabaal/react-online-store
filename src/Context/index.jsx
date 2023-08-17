@@ -24,12 +24,16 @@ export const initializeLocalStorage = () =>  {
 }
 
 export const ShoppingCartProvider = ({children}) => {
-    //Shopping Cart - Increment quantify
-    const [count, setCount] = useState(0);
+    //My Account
+    const [account, setAccount] = useState({})
+    const [signOut, setSignOut] = useState(false)
 
     //Formulario de registro
     const [email, setEmail] =useState('');
     const [password, setPassword] = useState('');
+    
+    //Shopping Cart - Increment quantify
+    const [count, setCount] = useState(0);
 
     //Product Detail - Open/Close
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);

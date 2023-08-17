@@ -26,6 +26,8 @@ export const initializeLocalStorage = () =>  {
 export const ShoppingCartProvider = ({children}) => {
     //My Account
     const [account, setAccount] = useState({})
+
+    //Sign Out
     const [signOut, setSignOut] = useState(false)
 
     //Formulario de registro
@@ -143,7 +145,11 @@ export const ShoppingCartProvider = ({children}) => {
             setSearchByTittle,
             filteredItems,
             searchByCategory,
-            setSearchByCategory
+            setSearchByCategory,
+            account,
+            setAccount,
+            signOut,
+            setSignOut
         }}>
             {children}
         </ShoppingCartContext.Provider>

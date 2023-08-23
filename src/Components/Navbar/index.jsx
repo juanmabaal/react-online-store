@@ -36,7 +36,7 @@ const handleSignOut = () => {
             return (
                 <>
                 <li className='text-black/60'>
-                            juanma.baal@gmail.com
+                            {parsedAccount?.email}
                         </li>
                         <li>
                             <NavLink to = '/my-orders'
